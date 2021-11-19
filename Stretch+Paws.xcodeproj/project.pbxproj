@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3B07E2927483024005C8CDD /* YogaTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B07E2827483024005C8CDD /* YogaTimer.swift */; };
 		A3E7B0212747F0EF00A99D42 /* Stretch_PawsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B0202747F0EF00A99D42 /* Stretch_PawsApp.swift */; };
 		A3E7B0232747F0EF00A99D42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B0222747F0EF00A99D42 /* ContentView.swift */; };
 		A3E7B0252747F0F000A99D42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3E7B0242747F0F000A99D42 /* Assets.xcassets */; };
 		A3E7B0282747F0F000A99D42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3E7B0272747F0F000A99D42 /* Preview Assets.xcassets */; };
+		A3E7B0332747F49400A99D42 /* Pose.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B0322747F49400A99D42 /* Pose.swift */; };
+		A3E7B0352747F4A800A99D42 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7B0342747F4A800A99D42 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A3B07E2827483024005C8CDD /* YogaTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaTimer.swift; sourceTree = "<group>"; };
 		A3E7B01D2747F0EF00A99D42 /* Stretch+Paws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stretch+Paws.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E7B0202747F0EF00A99D42 /* Stretch_PawsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stretch_PawsApp.swift; sourceTree = "<group>"; };
 		A3E7B0222747F0EF00A99D42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A3E7B0242747F0F000A99D42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3E7B0272747F0F000A99D42 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A3E7B0322747F49400A99D42 /* Pose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pose.swift; sourceTree = "<group>"; };
+		A3E7B0342747F4A800A99D42 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			children = (
 				A3E7B0202747F0EF00A99D42 /* Stretch_PawsApp.swift */,
 				A3E7B0222747F0EF00A99D42 /* ContentView.swift */,
+				A3E7B0342747F4A800A99D42 /* DetailView.swift */,
+				A3B07E2827483024005C8CDD /* YogaTimer.swift */,
+				A3E7B0322747F49400A99D42 /* Pose.swift */,
 				A3E7B0242747F0F000A99D42 /* Assets.xcassets */,
 				A3E7B0262747F0F000A99D42 /* Preview Content */,
 			);
@@ -137,6 +146,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E7B0332747F49400A99D42 /* Pose.swift in Sources */,
+				A3E7B0352747F4A800A99D42 /* DetailView.swift in Sources */,
+				A3B07E2927483024005C8CDD /* YogaTimer.swift in Sources */,
 				A3E7B0232747F0EF00A99D42 /* ContentView.swift in Sources */,
 				A3E7B0212747F0EF00A99D42 /* Stretch_PawsApp.swift in Sources */,
 			);
@@ -269,6 +281,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Stretch+Paws/Preview Content\"";
+				DEVELOPMENT_TEAM = H928K8TABJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -297,6 +310,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Stretch+Paws/Preview Content\"";
+				DEVELOPMENT_TEAM = H928K8TABJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -327,7 +341,7 @@
 				A3E7B02A2747F0F000A99D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		A3E7B02B2747F0F000A99D42 /* Build configuration list for PBXNativeTarget "Stretch+Paws" */ = {
 			isa = XCConfigurationList;
@@ -336,7 +350,7 @@
 				A3E7B02D2747F0F000A99D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
