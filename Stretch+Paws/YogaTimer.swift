@@ -6,15 +6,17 @@
 //
 
 import Foundation
+import AVFoundation
+
 
 class YogaTimer: ObservableObject {
-    
 //Timer states
     @Published var timerActive = false
     @Published var timerPaused = false
     @Published var timerEnded = false
     @Published var timerDuration = 30
     var yogaTimer = Timer()
+    var audioPlayer: AVAudioPlayer?
     
 //Timer functionality
     
@@ -44,7 +46,7 @@ class YogaTimer: ObservableObject {
     //End timer
     func stopTimer() {
         //Play a sound
-        
+        playSound(sound: "chime", type: "wav")
         //Timer has ended
         timerEnded = true
         //Timer is no longer active
@@ -56,10 +58,16 @@ class YogaTimer: ObservableObject {
     }
     
     //Play sound
-    func playSound() {
-        //Play audio file
+    func playSound(sound: String, type: String) {
+        if let path = Bundle.main.path(forResource: sound, ofType: type) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.play()
+            } catch {
+                print("ERROR")
+            }
+        }
     }
-    
     //Timer styles
     
     func setTitleText() -> String {
