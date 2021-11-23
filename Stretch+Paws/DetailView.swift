@@ -46,14 +46,17 @@ struct DetailView: View {
                     .padding(0.0)
                 }
                 .padding(.horizontal, 20.0)
-            }
-                .onTapGesture {
-                    timerOpen ? (timerOpen.toggle()) : ()
                 }
+                .onTapGesture {
+                    if timerOpen == true {
+                    withAnimation(.interactiveSpring()) {
+                        timerOpen ? (timerOpen.toggle()) : ()
+                    }
+                    }}
                 TimerPanelView(timerOpen: $timerOpen)
         }
     }
-}
+
 
 
 struct DetailView_Previews: PreviewProvider {
@@ -88,7 +91,20 @@ struct TimerPanelView: View {
     @StateObject var yogaTimer = YogaTimer()
     
     @Binding var timerOpen: Bool
+    
     var body: some View {
+        if timerOpen == true {
+        Rectangle()
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            .foregroundColor(Color("Primary"))
+            .ignoresSafeArea()
+            .opacity(0.6)
+            .onTapGesture {
+                withAnimation(.interactiveSpring()) {
+                    timerOpen.toggle()
+                    }
+                }
+        }
         VStack {
             Spacer()
             VStack {
@@ -100,10 +116,13 @@ struct TimerPanelView: View {
             .foregroundColor(Color("Secondary"))
         }
         .ignoresSafeArea()
+        
         .onTapGesture {
-            withAnimation(.spring()) {
+            withAnimation(.interactiveSpring()) {
                 timerOpen.toggle()
+                }
             }
+
         }
         
     }
@@ -140,7 +159,8 @@ struct timerOpenView: View {
                 else {
                     TimerStartButtonView(yogaTimer:yogaTimer)
         }
-    }.padding(30)
+    }
+        .padding(30)
 
 }
     }
@@ -180,5 +200,14 @@ struct TimerStartButtonView: View {
                 .foregroundColor(Color("Primary"))
                 .cornerRadius(30)
         }
+    }
+}
+
+
+struct OverlayView: View {
+    var body: some View {
+        Rectangle()
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            .foregroundColor(Color("Primary"))
     }
 }
