@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+func hapticTap() {
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.warning)
+}
+
+
 struct DetailView: View {
     let pose : Pose
     @State private var timerOpen = false
@@ -96,37 +102,39 @@ struct TimerPanelView: View {
         if timerOpen == true {
         Rectangle()
             .frame(maxWidth: .infinity,maxHeight: .infinity)
-            .foregroundColor(Color("Primary"))
+            .foregroundColor(Color("Background"))
             .ignoresSafeArea()
-            .opacity(0.6)
             .onTapGesture {
                 withAnimation(.interactiveSpring()) {
                     timerOpen.toggle()
+                    hapticTap()
                     }
                 }
         }
         VStack {
             Spacer()
             VStack {
-                timerOpen ? AnyView(timerOpenView(yogaTimer:yogaTimer)) : AnyView(timerClosedView())
+                AnyView(timerClosedView())
+                AnyView(timerOpenView(yogaTimer:yogaTimer))
             }
-            .frame(maxWidth: .infinity, maxHeight: timerOpen ? 400 : 80)
+            .frame(maxWidth: .infinity, maxHeight: timerOpen ? 400 : 400)
             .background(Color("Highlight"))
             .cornerRadius(32)
             .foregroundColor(Color("Secondary"))
-        }
-        .ignoresSafeArea()
-        
-        .onTapGesture {
-            withAnimation(.interactiveSpring()) {
-                timerOpen.toggle()
-                }
-            }
+            .offset(y: timerOpen ? 0 : 300)
 
         }
+        .ignoresSafeArea()
+        .onTapGesture {
+            withAnimation(.interactiveSpring())
+            {
+                timerOpen.toggle()
+                }
+            hapticTap()
         
+            }
+        }
     }
-}
 
 struct timerClosedView: View {
     var body: some View {
@@ -210,4 +218,5 @@ struct OverlayView: View {
             .frame(maxWidth: .infinity,maxHeight: .infinity)
             .foregroundColor(Color("Primary"))
     }
+}
 }
